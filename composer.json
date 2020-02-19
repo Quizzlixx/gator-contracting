@@ -1,0 +1,16 @@
+{
+  "name": "klow/328/gator-contracting",
+  "authors": [
+    {
+      "name": "Kerrie Low",
+      "email": "klow4@mail.greenriver.edu"
+    },
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
