@@ -6,11 +6,14 @@
       "email": "klow4@mail.greenriver.edu"
     },
     {
-      "name": "",
-      "email": ""
+      "name": "Cody Zipp",
+      "email": "Czipp2@mail.greenriver.edu"
     }
   ],
   "require": {
     "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": ["controller/"]
   }
 }
