@@ -18,5 +18,20 @@ $f3->route('GET /', function() {
     $GLOBALS['routes']->home();
 });
 
+$f3->route('GET /contractor', function () {
+    $GLOBALS['routes']->contractor();
+});
+
+$f3->route('GET /client', function () {
+    $GLOBALS['routes']->client();
+});
+
+$f3->route('GET /jobs', function () {
+    $GLOBALS['routes']->jobs();
+});
+
+$f3->route('GET /login', function () {
+    $GLOBALS['routes']->login();
+});
 //run fat free
 $f3 -> run();
