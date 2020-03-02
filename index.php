@@ -22,6 +22,7 @@ $f3->route('GET /contractor', function () {
     $GLOBALS['routes']->contractor();
 });
 
+
 $f3->route('GET /client', function () {
     $GLOBALS['routes']->client();
 });
