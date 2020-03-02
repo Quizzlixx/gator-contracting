@@ -13,7 +13,132 @@
     <!-- body -->
     <div class="container-fluid">
 
+        <!-- form -->
+        <form method="POST" action="#">
 
+            <!-- fieldset -->
+            <fieldset class="form-group">
+
+                <!-- username -->
+                <!--<label for="username"><strong>Username</strong>
+                    <input type="text" name="username" id="username">
+                    <check if="{{ isset(@errors['username']) }}">
+                        <label class="text-danger">{{ @errors['username'] }}</label>
+                    </check>
+                </label>
+                <br>-->
+                <!-- /username -->
+
+                <!-- company -->
+                <label for="company"><strong>Company</strong>
+                    <input type="text" name="company" id="company">
+                    <check if="{{ isset(@errors['company']) }}">
+                        <label class="text-danger">{{ @errors['company'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /company -->
+
+                <!-- first name -->
+                <label for="first"><strong>First Name</strong>
+                    <input type="text" name="first" id="first">
+                    <check if="{{ isset(@errors['first']) }}">
+                        <label class="text-danger">{{ @errors['first'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /first name -->
+
+                <!-- last name -->
+                <label for="last"><strong>Last Name</strong>
+                    <input type="text" name="last" id="last">
+                    <check if="{{ isset(@errors['last']) }}">
+                        <label class="text-danger">{{ @errors['last'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /last name -->
+
+                <!-- phone number -->
+                <label for="phone"><strong>Phone Number</strong>
+                    <input type="text" name="phone" id="phone">
+                    <check if="{{ isset(@errors['phone']) }}">
+                        <label class="text-danger">{{ @errors['phone'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /phone number -->
+
+                <!-- email -->
+                <label for="email"><strong>Email</strong>
+                    <input type="text" name="email" id="email">
+                    <check if="{{ isset(@errors['email']) }}">
+                        <label class="text-danger">{{ @errors['email'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /email -->
+
+                <!-- address -->
+                <label for="address"><strong>Address</strong>
+                    <input type="text" name="address" id="address">
+                    <check if="{{ isset(@errors['address']) }}">
+                        <label class="text-danger">{{ @errors['address'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /address -->
+
+                <!-- suite -->
+                <label for="suite"><strong>Suite</strong>
+                    <input type="text" name="suite" id="suite">
+                </label>
+                <br>
+                <!-- /suite -->
+
+                <!-- city -->
+                <label for="city"><strong>City</strong>
+                    <input type="text" name="city" id="city">
+                    <check if="{{ isset(@errors['city']) }}">
+                        <label class="text-danger">{{ @errors['city'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /city -->
+
+                <!-- state -->
+                <label for="state" class="control-label"><strong>State</strong>
+                    <select id="state" name="state" class="form-control">
+                        <option value="none">-- Select a State --</option>
+                        <repeat group="{{ @states }}" key="{{ @stateKey }}" value="{{ @stateValue }}">
+                            <option value="{{ @stateKey }}"
+                            <check if="{{ @stateKey == @person['state'] }}">
+                                selected
+                            </check>
+                            >{{ @stateValue }}</option>
+                        </repeat>
+                    </select>
+                </label>
+                <br>
+                <!-- /state -->
+
+                <!-- zip -->
+                <label for="zip"><strong>Zip Code</strong>
+                    <input type="text" name="zip" id="zip">
+                    <check if="{{ isset(@errors['zip']) }}">
+                        <label class="text-danger">{{ @errors['zip'] }}</label>
+                    </check>
+                </label>
+                <br>
+                <!-- /zip -->
+            </fieldset>
+            <!-- /fieldset -->
+
+            <!-- button -->
+            <button class="btn btn-primary submit" id="submit">Submit</button>
+            <!-- /button -->
+        </form>
+        <!-- /form -->
     </div>
 </body>
 <!-- footer -->
