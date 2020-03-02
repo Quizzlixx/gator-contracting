@@ -39,4 +39,16 @@ class Routes
         echo $view->render("views/login.html");
     }
 
+    function clientRegister()
+    {
+        $view = new Template();
+        echo $view->render("views/client-register.html");
+    }
+
+    function contractorRegister()
+    {
+        $view = new Template();
+        echo $view->render("views/contractor-register.html");
+    }
+
 }
