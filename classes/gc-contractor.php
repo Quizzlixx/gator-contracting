@@ -1,6 +1,6 @@
 <?php
 
-class Contractor
+class GcContractor
 {
 
 }
