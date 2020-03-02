@@ -21,10 +21,22 @@ class Routes
         echo $view->render("views/contractor.html");
     }
 
+    function contractorRegister()
+    {
+        $view = new Template();
+        echo $view->render("views/contractor-register.html");
+    }
+
     function client()
     {
         $view = new Template();
         echo $view->render("views/client.html");
+    }
+
+    function clientRegister()
+    {
+        $view = new Template();
+        echo $view->render("views/client-register.html");
     }
 
     function jobs()
