@@ -1,9 +1,9 @@
 {
-  "name": "klow/328/gator-contracting",
+  "name": "klow.greenriverdev.com/328/gator-contracting",
   "authors": [
     {
       "name": "Kerrie Low",
-      "email": "klow4@mail.greenriver.edu"
+      "email": "klow4@greenriver.edu"
     },
     {
       "name": "Cody Zipp",
@@ -14,6 +14,6 @@
     "bcosca/fatfree-core": "dev-master"
   },
   "autoload": {
-    "classmap": ["controller/", "model/", "classes/"]
+    "classmap": ["model/", "controller/", "classes/"]
   }
 }
