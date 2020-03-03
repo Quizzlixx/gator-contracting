@@ -6,6 +6,9 @@
  * Full Stack Web Development
  * https://klow.greenriverdev.com/328/gator-contracting/
  */
+//turn on error reporting
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 //require the autoload file
 require_once('vendor/autoload.php');
@@ -13,12 +16,14 @@ require_once('vendor/autoload.php');
 // session start
 session_start();
 
-//turn on error reporting
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 //create an instance of the base class
 $f3 = Base::instance();
+
+// f3 debugging ON
+$f3->set('DEBUG', 3);
+
+// Instantiate a new controller
+$routes = new Routes($f3);
 
 // states array
 $f3->set('states', array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' => 'Arkansas',
@@ -32,7 +37,6 @@ $f3->set('states', array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona',
     'SD' => 'South Dakota', 'TN' => 'Tennessee', 'TX' => 'Texas', 'UT' => 'Utah', 'VT' => 'Vermont', 'VA' => 'Virginia',
     'WA' => 'Washington', 'WV' => 'West Virginia', 'WI' => 'Wisconsin', 'WY' => 'Wyoming'));
 
-$routes = new Routes($f3);
 //define a default route
 $f3->route('GET /', function () {
     $GLOBALS['routes']->home();
