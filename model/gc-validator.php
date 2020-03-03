@@ -27,7 +27,7 @@ class GcValidator
     /**
      * @return array
      */
-    public function getErrors()
+    public function getGErrors()
     {
         return $this->_errors;
     }

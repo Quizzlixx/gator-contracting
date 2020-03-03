@@ -30,62 +30,56 @@
                 <!-- /username -->
 
                 <!-- company -->
-                <label for="company" class="control-label"><strong>Company</strong>
-                    <input type="text" name="company" id="company" class="form-control" value="{{ @client['company'] }}">
-                    <check if="{{ isset(@errors['company']) }}">
-                        <label class="text-danger">{{ @errors['company'] }}</label>
-                    </check>
-                </label>
+                <label for="company" class="control-label"><strong>Company</strong></label>
+                <input type="text" name="company" id="company" class="form-control" value="{{ @client['company'] }}">
+                <check if="{{ isset(@errors['company']) }}">
+                    <label class="text-danger">{{ @errors['company'] }}</label>
+                </check>
                 <br>
                 <!-- /company -->
 
                 <!-- first name -->
-                <label for="first" class="control-label"><strong>First Name</strong>
-                    <input type="text" name="first" id="first" class="form-control" value="{{ @client['first'] }}">
-                    <check if="{{ isset(@errors['first']) }}">
-                        <label class="text-danger">{{ @errors['first'] }}</label>
-                    </check>
-                </label>
+                <label for="first" class="control-label"><strong>First Name</strong></label>
+                <input type="text" name="first" id="first" class="form-control" value="{{ @client['first'] }}">
+                <check if="{{ isset(@errors['first']) }}">
+                    <label class="text-danger">{{ @errors['first'] }}</label>
+                </check>
                 <br>
                 <!-- /first name -->
 
                 <!-- last name -->
-                <label for="last" class="control-label"><strong>Last Name</strong>
-                    <input type="text" name="last" id="last" class="form-control" value="{{ @client['last'] }}">
-                    <check if="{{ isset(@errors['last']) }}">
-                        <label class="text-danger">{{ @errors['last'] }}</label>
-                    </check>
-                </label>
+                <label for="last" class="control-label"><strong>Last Name</strong></label>
+                <input type="text" name="last" id="last" class="form-control" value="{{ @client['last'] }}">
+                <check if="{{ isset(@errors['last']) }}">
+                    <label class="text-danger">{{ @errors['last'] }}</label>
+                </check>
                 <br>
                 <!-- /last name -->
 
                 <!-- phone number -->
-                <label for="phone" class="control-label"><strong>Phone Number</strong>
-                    <input type="text" name="phone" id="phone" class="form-control" value="{{ @client['phone'] }}">
-                    <check if="{{ isset(@errors['phone']) }}">
-                        <label class="text-danger">{{ @errors['phone'] }}</label>
-                    </check>
-                </label>
+                <label for="phone" class="control-label"><strong>Phone Number</strong></label>
+                <input type="text" name="phone" id="phone" class="form-control" value="{{ @client['phone'] }}">
+                <check if="{{ isset(@errors['phone']) }}">
+                    <label class="text-danger">{{ @errors['phone'] }}</label>
+                </check>
                 <br>
                 <!-- /phone number -->
 
                 <!-- email -->
-                <label for="email" class="control-label"><strong>Email</strong>
-                    <input type="text" name="email" id="email" class="form-control" value="{{ @client['email'] }}">
-                    <check if="{{ isset(@errors['email']) }}">
-                        <label class="text-danger">{{ @errors['email'] }}</label>
-                    </check>
-                </label>
+                <label for="email" class="control-label"><strong>Email</strong></label>
+                <input type="text" name="email" id="email" class="form-control" value="{{ @client['email'] }}">
+                <check if="{{ isset(@errors['email']) }}">
+                    <label class="text-danger">{{ @errors['email'] }}</label>
+                </check>
                 <br>
                 <!-- /email -->
 
                 <!-- address -->
-                <label for="address" class="control-label"><strong>Address</strong>
-                    <input type="text" name="address" id="address" class="form-control" value="{{ @client['address'] }}">
-                    <check if="{{ isset(@errors['address']) }}">
-                        <label class="text-danger">{{ @errors['address'] }}</label>
-                    </check>
-                </label>
+                <label for="address" class="control-label"><strong>Address</strong></label>
+                <input type="text" name="address" id="address" class="form-control" value="{{ @client['address'] }}">
+                <check if="{{ isset(@errors['address']) }}">
+                    <label class="text-danger">{{ @errors['address'] }}</label>
+                </check>
                 <br>
                 <!-- /address -->
 
@@ -97,12 +91,11 @@
                 <!-- /suite -->
 
                 <!-- city -->
-                <label for="city" class="control-label"><strong>City</strong>
-                    <input type="text" name="city" id="city" class="form-control" value="{{ @client['city'] }}">
-                    <check if="{{ isset(@errors['city']) }}">
-                        <label class="text-danger">{{ @errors['city'] }}</label>
-                    </check>
-                </label>
+                <label for="city" class="control-label"><strong>City</strong></label>
+                <input type="text" name="city" id="city" class="form-control" value="{{ @client['city'] }}">
+                <check if="{{ isset(@errors['city']) }}">
+                    <label class="text-danger">{{ @errors['city'] }}</label>
+                </check>
                 <br>
                 <!-- /city -->
 
@@ -112,7 +105,7 @@
                         <option value="none">-- Select a State --</option>
                         <repeat group="{{ @states }}" key="{{ @stateKey }}" value="{{ @stateValue }}">
                             <option value="{{ @stateKey }}"
-                            <check if="{{ @stateKey == @person['state'] }}">
+                            <check if="{{ @stateKey == @client['state'] }}">
                                 selected
                             </check>
                             >{{ @stateValue }}</option>
@@ -123,12 +116,11 @@
                 <!-- /state -->
 
                 <!-- zip -->
-                <label for="zip" class="control-label"><strong>Zip Code</strong>
-                    <input type="text" name="zip" id="zip" class="form-control" value="{{ @client['zip'] }}">
-                    <check if="{{ isset(@errors['zip']) }}">
-                        <label class="text-danger">{{ @errors['zip'] }}</label>
-                    </check>
-                </label>
+                <label for="zip" class="control-label"><strong>Zip Code</strong></label>
+                <input type="text" name="zip" id="zip" class="form-control" value="{{ @client['zip'] }}">
+                <check if="{{ isset(@errors['zip']) }}">
+                    <label class="text-danger">{{ @errors['zip'] }}</label>
+                </check>
                 <br>
                 <!-- /zip -->
             </fieldset>

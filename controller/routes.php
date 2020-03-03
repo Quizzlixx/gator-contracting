@@ -37,6 +37,7 @@ class Routes
         $view = new Template();
         echo $view->render("views/home.html");
     }
+
     /**
      *
      */
@@ -69,7 +70,8 @@ class Routes
      */
     function clientRegister($f3)
     {
-        var_dump($_SESSION['client']);
+        echo "POST" . var_dump($_POST) . "<br>";
+        echo "SESSION" . var_dump($_SESSION) . "<br>";
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -96,15 +98,18 @@ class Routes
                 $_SESSION['client'] = $client;
 
                 // reroute to client area
-                $f3->reroute('views/client');
-            }
-        } else {
-            // Data was not valid
-            // Get errors from validator and add to f3 hive
-            $this->_f3->set('errors', $this->_val->getErrors());
+                $f3->reroute('/client');
 
-            // add POST array data to f3 hive for sticky form
-            $this->_f3->set('client', $_POST);
+                // unset session variable
+                $_SESSION = array();
+            } else {
+                // Data was not valid
+                // Get errors from validator and add to f3 hive
+                $this->_f3->set('errors', $this->_val->getGErrors());
+
+                // add POST array data to f3 hive for sticky form
+                $this->_f3->set('client', $_POST);
+            }
         }
 
         $view = new Template();
