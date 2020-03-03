@@ -1,13 +1,21 @@
 <?php
+/*
+ * Kerrie Low
+ * Cody Zipp
+ * Gator Contracting
+ * Full Stack Web Development
+ * https://klow.greenriverdev.com/328/gator-contracting/
+ */
 
-//this is our controller!
+//require the autoload file
+require_once('vendor/autoload.php');
+
+// session start
+session_start();
 
 //turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
-//require the autoload file
-require_once('vendor/autoload.php');
 
 //create an instance of the base class
 $f3 = Base::instance();
@@ -42,16 +50,16 @@ $f3->route('GET /jobs', function () {
     $GLOBALS['routes']->jobs();
 });
 
-$f3->route('GET /login', function () {
+$f3->route('GET|POST /login', function ($f3) {
     $GLOBALS['routes']->login();
 });
 
-$f3->route('GET /client-register', function () {
-    $GLOBALS['routes']->clientRegister();
+$f3->route('GET|POST /client-register', function ($f3) {
+    $GLOBALS['routes']->clientRegister($f3);
 });
 
-$f3->route('GET /contractor-register', function () {
-    $GLOBALS['routes']->contractorRegister();
+$f3->route('GET|POST /contractor-register', function ($f3) {
+    $GLOBALS['routes']->contractorRegister($f3);
 });
 //run fat free
 $f3->run();
