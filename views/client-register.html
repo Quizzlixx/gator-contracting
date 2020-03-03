@@ -31,7 +31,7 @@
 
                 <!-- company -->
                 <label for="company"><strong>Company</strong>
-                    <input type="text" name="company" id="company">
+                    <input type="text" name="company" id="company" value="{{ @client['company'] }}">
                     <check if="{{ isset(@errors['company']) }}">
                         <label class="text-danger">{{ @errors['company'] }}</label>
                     </check>
@@ -41,7 +41,7 @@
 
                 <!-- first name -->
                 <label for="first"><strong>First Name</strong>
-                    <input type="text" name="first" id="first">
+                    <input type="text" name="first" id="first" value="{{ @client['first'] }}">
                     <check if="{{ isset(@errors['first']) }}">
                         <label class="text-danger">{{ @errors['first'] }}</label>
                     </check>
@@ -51,7 +51,7 @@
 
                 <!-- last name -->
                 <label for="last"><strong>Last Name</strong>
-                    <input type="text" name="last" id="last">
+                    <input type="text" name="last" id="last" value="{{ @client['last'] }}">
                     <check if="{{ isset(@errors['last']) }}">
                         <label class="text-danger">{{ @errors['last'] }}</label>
                     </check>
@@ -61,7 +61,7 @@
 
                 <!-- phone number -->
                 <label for="phone"><strong>Phone Number</strong>
-                    <input type="text" name="phone" id="phone">
+                    <input type="text" name="phone" id="phone" value="{{ @client['phone'] }}">
                     <check if="{{ isset(@errors['phone']) }}">
                         <label class="text-danger">{{ @errors['phone'] }}</label>
                     </check>
@@ -71,7 +71,7 @@
 
                 <!-- email -->
                 <label for="email"><strong>Email</strong>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" value="{{ @client['email'] }}">
                     <check if="{{ isset(@errors['email']) }}">
                         <label class="text-danger">{{ @errors['email'] }}</label>
                     </check>
@@ -81,7 +81,7 @@
 
                 <!-- address -->
                 <label for="address"><strong>Address</strong>
-                    <input type="text" name="address" id="address">
+                    <input type="text" name="address" id="address" value="{{ @client['address'] }}">
                     <check if="{{ isset(@errors['address']) }}">
                         <label class="text-danger">{{ @errors['address'] }}</label>
                     </check>
@@ -91,14 +91,14 @@
 
                 <!-- suite -->
                 <label for="suite"><strong>Suite</strong>
-                    <input type="text" name="suite" id="suite">
+                    <input type="text" name="suite" id="suite" value="{{ @client['suite'] }}">
                 </label>
                 <br>
                 <!-- /suite -->
 
                 <!-- city -->
                 <label for="city"><strong>City</strong>
-                    <input type="text" name="city" id="city">
+                    <input type="text" name="city" id="city" value="{{ @client['city'] }}">
                     <check if="{{ isset(@errors['city']) }}">
                         <label class="text-danger">{{ @errors['city'] }}</label>
                     </check>
@@ -124,7 +124,7 @@
 
                 <!-- zip -->
                 <label for="zip"><strong>Zip Code</strong>
-                    <input type="text" name="zip" id="zip">
+                    <input type="text" name="zip" id="zip" value="{{ @client['zip'] }}">
                     <check if="{{ isset(@errors['zip']) }}">
                         <label class="text-danger">{{ @errors['zip'] }}</label>
                     </check>
