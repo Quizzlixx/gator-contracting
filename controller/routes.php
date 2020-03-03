@@ -32,6 +32,11 @@ class Routes
         echo $view->render("views/home.html");
     }
 
+    function main()
+    {
+        $view = new Template();
+        echo $view->render("views/home.html");
+    }
     /**
      *
      */

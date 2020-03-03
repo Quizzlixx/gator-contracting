@@ -26,8 +26,12 @@ $f3->set('states', array('AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona',
 
 $routes = new Routes($f3);
 //define a default route
-$f3->route('GET /home', function () {
+$f3->route('GET /', function () {
     $GLOBALS['routes']->home();
+});
+
+$f3->route('GET /main', function () {
+    $GLOBALS['routes']->main();
 });
 
 $f3->route('GET /contractor', function () {
