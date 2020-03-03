@@ -52,7 +52,6 @@ class GcClient
 
     /**
      * GcClient constructor.
-     * @param $_username
      * @param $_company
      * @param $_first
      * @param $_last
@@ -64,9 +63,9 @@ class GcClient
      * @param $_state
      * @param $_zip
      */
-    public function __construct($_username, $_company, $_first, $_last, $_phone, $_email, $_address, $_suite, $_city, $_state, $_zip)
+    public function __construct($_company, $_first, $_last, $_phone, $_email, $_address, $_suite, $_city, $_state, $_zip)
     {
-        $this->_username = $_username;
+//        $this->_username = $_username;
         $this->_company = $_company;
         $this->_first = $_first;
         $this->_last = $_last;
