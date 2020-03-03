@@ -16,11 +16,11 @@ class GcValidator
 
     /**
      * GcValidator constructor.
-     * @param $_f3
+     * @param $f3
      */
-    public function __construct($_f3)
+    public function __construct($f3)
     {
-        $this->_f3 = $_f3;
+        $this->_f3 = $f3;
         $this->_errors = array();
     }
 
@@ -37,7 +37,7 @@ class GcValidator
      *
      * @return bool
      */
-    public function validPersonalInformation()
+    public function validClient()
     {
         $this->validCompany($_POST['company']);
         $this->validFirst($_POST['first']);
