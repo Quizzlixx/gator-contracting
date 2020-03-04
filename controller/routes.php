@@ -52,6 +52,36 @@ class Routes
      */
     function contractorRegister($f3)
     {
+        echo "POST" . var_dump($_POST) . "<br>";
+        echo "SESSION" . var_dump($_SESSION) . "<br>";
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $this->_val = new GcValidator($f3);
+
+            if ($this->_val->validContractor()) {
+                $first = $_POST['first'];
+                $last = $_POST['last'];
+                $title = $_POST['title'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
+                $address = $_POST['address'];
+                $apt = $_POST['apt'];
+                $city = $_POST['city'];
+                $zip = $_POST['zip'];
+
+                $contractor = new GcContractor($first, $last, $title, $email, $phone, $address, $apt, $city, $zip);
+
+                $_SESSION['contractor'] = $contractor;
+
+                $f3->reroute('/contractor');
+
+                $_SESSION = array();
+            } else {
+                $this->_f3->set('errors', $this->_val->getGErrors());
+
+                $this->_f3->set('contractor', $_POST);
+            }
+        }
         $view = new Template();
         echo $view->render("views/contractor-register.html");
     }

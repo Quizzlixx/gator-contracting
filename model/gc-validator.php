@@ -52,6 +52,20 @@ class GcValidator
         return empty($this->_errors);
     }
 
+    public function validContractor()
+    {
+        $this->validFirst($_POST['first']);
+        $this->validLast($_POST['last']);
+        $this->validTitle($_POST['title']);
+        $this->validEmail($_POST['email']);
+        $this->validPhone($_POST['phone']);
+        $this->validAddress($_POST['address']);
+        $this->validApt($_POST['apt']);
+        $this->validCity($_POST['city']);
+        $this->validZip($_POST['zip']);
+
+        return empty($this->_errors);
+    }
 //    public function validUsername($username)
 //    {
 //        if (empty(trim($username))) {
@@ -69,6 +83,13 @@ class GcValidator
         }
     }
 
+
+    public function validTitle($title)
+    {
+        if (empty(trim($title))) {
+            $this->_errors['title'] = "Contractor title is required.";
+        }
+    }
     /**
      * Takes a variable and returns true if it is not empty and contains only letters
      *
@@ -126,6 +147,13 @@ class GcValidator
     {
         if (empty($address)) {
             $this->_errors['address'] = "Please enter an address.";
+        }
+    }
+
+    public function validApt($apt)
+    {
+        if (empty($apt)) {
+            $this->_errors['apt'] = "please enter a apt.";
         }
     }
 
