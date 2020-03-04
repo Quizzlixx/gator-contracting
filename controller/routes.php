@@ -67,9 +67,10 @@ class Routes
                 $address = $_POST['address'];
                 $apt = $_POST['apt'];
                 $city = $_POST['city'];
+                $state = $_POST['state'];
                 $zip = $_POST['zip'];
 
-                $contractor = new GcContractor($first, $last, $title, $email, $phone, $address, $apt, $city, $zip);
+                $contractor = new GcContractor($first, $last, $title, $email, $phone, $address, $apt, $city, $state, $zip);
 
                 $_SESSION['contractor'] = $contractor;
 

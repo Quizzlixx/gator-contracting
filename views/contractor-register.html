@@ -21,7 +21,7 @@
             <!-- first name -->
             <div>
                 <label><strong>First Name</strong></label>
-                <input type="text" name="first" value="{{ @first }}">
+                <input type="text" name="first" value="{{ @contractor['first'] }}">
                 <check if="{{ @errors['first'] }}">
                     <span class="err">{{ @errors['first'] }}</span>
                 </check><br>
@@ -30,7 +30,7 @@
             <!-- last name -->
             <div>
                 <label><strong>Last Name</strong></label>
-                <input type="text" name="last" value="{{ @last }}">
+                <input type="text" name="last" value="{{ @contractor['last'] }}">
                 <check if="{{ @errors['last'] }}">
                     <span class="err">{{ @errors['last'] }}</span>
                 </check><br>
@@ -39,7 +39,7 @@
             <!-- title -->
             <div>
                 <label><strong>Title</strong></label>
-                <input type="text" name="title" value="{{ @title }}">
+                <input type="text" name="title" value="{{ @contractor['title'] }}">
                 <check if="{{ @errors['title'] }}">
                     <span class="err">{{ @errors['title'] }}</span>
                 </check>
@@ -48,7 +48,7 @@
             <!-- email -->
             <div>
                 <label><strong>Email</strong></label>
-                <input type="text" name="email" value="{{ @email }}">
+                <input type="text" name="email" value="{{ @contractor['email'] }}">
                 <check if="{{ @errors['email'] }}">
                     <span class="err">{{ @errors['email'] }}</span>
                 </check>
@@ -57,7 +57,7 @@
             <!-- phone -->
             <div>
                 <label><strong>Phone</strong></label>
-                <input type="text" name="phone" value="{{ @phone }}">
+                <input type="text" name="phone" value="{{ @contractor['phone'] }}">
                 <check if="{{ @errors['phone'] }}">
                     <span class="err">{{ @errors['phone'] }}</span>
                 </check>
@@ -66,7 +66,7 @@
             <!-- address -->
             <div>
                 <label><strong>address</strong></label>
-                <input type="text" name="address" value="{{ @address }}">
+                <input type="text" name="address" value="{{ @contractor['address'] }}">
                 <check if="{{ @errors['address'] }}">
                     <span class="err">{{ @errors['address'] }}</span>
                 </check>
@@ -75,7 +75,7 @@
             <!-- apt -->
             <div>
                 <label><strong>apt</strong></label>
-                <input type="text" name="apt" value="apt">
+                <input type="text" name="apt" value="{{ @contractor['apt'] }}">
                 <check if="{{ @errors['apt'] }}">
                     <span class="err">{{ @errors['apt'] }}</span>
                 </check>
@@ -84,7 +84,7 @@
             <!-- city -->
             <div>
                 <label><strong>City</strong></label>
-                <input type="text" name="city" value="city">
+                <input type="text" name="city" value="{{ @contractor['city'] }}">
                 <check if="{{ @errors['city'] }}">
                     <span class="err">{{ @errors['city'] }}</span>
                 </check>
@@ -95,7 +95,7 @@
                 <label><strong>State.</strong></label><br>
                 <select name="state">
                     <option>Select a State</option>
-                    <repeat group="{{ @states }}" value="{{ @stateOption }}">
+                    <repeat group="{{ @states }}" value="{{ @contractor['stateOption'] }}">
                         <option value="{{ @stateOption }}"
                         <check if="{{ @state == @stateOption }}">
                             selected="selected
@@ -109,7 +109,7 @@
             <!-- zip -->
             <div>
                 <label><strong>Zip Code</strong></label>
-                <input type="text" name="zip" value="zip">
+                <input type="text" name="zip" value="{{ @contractor['zip'] }}">
                 <check if="{{ @errors['zip'] }}">
                     <span class="err">{{ @errors['zip'] }}</span>
                 </check>
