@@ -95,10 +95,10 @@
                 <label><strong>State.</strong></label><br>
                 <select name="state">
                     <option>Select a State</option>
-                    <repeat group="{{ @states }}" value="{{ @contractor['stateOption'] }}">
+                    <repeat group="{{ @states }}" value="{{ @stateOption }}">
                         <option value="{{ @stateOption }}"
                         <check if="{{ @state == @stateOption }}">
-                            selected="selected
+                            selected="selected"
                         </check>
                         >{{ @stateOption }}
                         </option>
