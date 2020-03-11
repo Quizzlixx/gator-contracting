@@ -8,3 +8,12 @@
     /*margin: auto;*/
 
 }
+.carousel {
+    text-align: right;
+    position: absolute;
+    right: 0;
+}
+.carousel-inner > .item{
+    width: 100px;
+    height: 50px;
+}
