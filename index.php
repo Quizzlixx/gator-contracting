@@ -23,6 +23,7 @@ $f3 = Base::instance();
 $f3->set('DEBUG', 3);
 
 // Instantiate a new controller
+$db = new GcDatabase();
 $routes = new Routes($f3);
 
 // states array

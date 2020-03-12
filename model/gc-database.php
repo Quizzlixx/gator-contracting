@@ -118,7 +118,7 @@ class GcDatabase
     }
 
     /**
-     * TODO: Gets a single job for search functionality
+     * TODO: Gets a single job for search functionality. Not sure how to implement this yet
      * Queries the database for a job number
      * @param $jobNumber
      * @return array
