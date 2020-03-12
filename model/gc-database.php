@@ -23,14 +23,15 @@ class GcDatabase
     }
 
     /**
-     * Contractor registration
+     * Contractor registration takes a contractor object and inserts it into the database.
+     * @param $contractor
      */
     function insertContractor($contractor)
     {
         // define query
-        $sql = "INSERT INTO contractor(`first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
+        $sql = "INSERT INTO contractor(`first`, `last`, `title`, `email`, `phone`, `address`, `suite`, `city`, `state`, 
                                         `zip`)
-                VALUES(:first, :last, :title, :email, :phone, :address, :apt, :city, :state, :zip)";
+                VALUES(:first, :last, :title, :email, :phone, :address, :suite, :city, :state, :zip)";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
@@ -42,7 +43,7 @@ class GcDatabase
         $statement->bindParam(':email', $contractor->getEmail());
         $statement->bindParam(':phone', $contractor->getPhone());
         $statement->bindParam(':address', $contractor->getAddress());
-        $statement->bindParam(':apt', $contractor->getApt());
+        $statement->bindParam(':suite', $contractor->getApt());
         $statement->bindParam(':city', $contractor->getCity());
         $statement->bindParam(':state', $contractor->getState());
         $statement->bindParam(':zip', $contractor->getZip());
@@ -51,27 +52,76 @@ class GcDatabase
         $statement->execute();
 
         // get results
-        # no results
+        # no results to return
     }
 
     /**
-     * Client registration
+     * Client registration takes a client object and inserts it into the database
+     * @param $client
      */
     function insertClient($client)
     {
+        // define query
+        $sql = "INSERT INTO client(`company`, `first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
+                                        `zip`)
+                VALUES(:company, :first, :last, :title, :email, :phone, :address, :apt, :city, :state, :zip)";
 
+        // prepare statement
+        $statement = $this->_dbh->prepare($sql);
+
+        // bind params
+        $statement->bindParam(':company', $client->getCompany());
+        $statement->bindParam(':first', $client->getFirst());
+        $statement->bindParam(':last', $client->getLast());
+        $statement->bindParam(':title', $client->getTitle());
+        $statement->bindParam(':email', $client->getEmail());
+        $statement->bindParam(':phone', $client->getPhone());
+        $statement->bindParam(':address', $client->getAddress());
+        $statement->bindParam(':apt', $client->getApt());
+        $statement->bindParam(':city', $client->getCity());
+        $statement->bindParam(':state', $client->getState());
+        $statement->bindParam(':zip', $client->getZip());
+
+        // execute statement
+        $statement->execute();
+
+        // get results
+        # no results to return
     }
 
     /**
-     * Allows a client to post jobs
+     * Takes a job object and inserts it into the database
+     * @param $job
      */
     function insertJob($job)
     {
+        // define query
+        $sql = "INSERT INTO job(`title`, `description`, `salary`, `duration`, `start`, `client_id`)
+                VALUES (:title, :description, :salary, :duration, :start, :clientID)";
 
+        // prepare statement
+        $statement = $this->_dbh->prepare($sql);
+
+        // bind params
+        $statement->bindParam(':title', $job->getTitle());
+        $statement->bindParam(':description', $job->getDescription());
+        $statement->bindParam(':salary', $job->getSalary());
+        $statement->bindParam(':duration', $job->getDuration());
+        $statement->bindParam(':start', $job->getStart());
+        $statement->bindParam(':clientID', $job->getClientId());
+
+        // execute statement
+        $statement->execute();
+
+        // return results
+        # no results to return
     }
 
     /**
      * TODO: Gets a single job for search functionality
+     * Queries the database for a job number
+     * @param $jobNumber
+     * @return array
      */
     function getJob($jobNumber)
     {
