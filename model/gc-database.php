@@ -97,7 +97,7 @@ class GcDatabase
     {
         // define query
         $sql = "INSERT INTO job(`title`, `description`, `salary`, `duration`, `start`, `client_id`)
-                VALUES (:title, :description, :salary, :duration, :start, :clientID)";
+                VALUES (:title, :description, :salary, :duration, :start, :client)";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
@@ -108,7 +108,7 @@ class GcDatabase
         $statement->bindParam(':salary', $job->getSalary());
         $statement->bindParam(':duration', $job->getDuration());
         $statement->bindParam(':start', $job->getStart());
-        $statement->bindParam(':clientID', $job->getClientId());
+        $statement->bindParam(':client', $job->getClient());
 
         // execute statement
         $statement->execute();
