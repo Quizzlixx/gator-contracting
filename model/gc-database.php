@@ -1,6 +1,6 @@
 <?php
 // Requires
-require_once('/home/klowgree/config-dating.php');
+require_once('../../../config.php');
 
 class GcDatabase
 {

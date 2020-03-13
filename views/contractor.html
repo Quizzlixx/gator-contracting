@@ -11,6 +11,38 @@
     <include href="views/navbar.html">
 
     <!-- body -->
+        <div class="container-fluid">
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Title</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Apt</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                </tr>
+                <repeat group="{{ @contractor }}" value="{{ @contractor }}">
+                    <tr>
+                        <td>{{ @contractor['first'] }}</td>
+                        <td>{{ @contractor['last'] }}</td>
+                        <td>{{ @contractor['title'] }}</td>
+                        <td>{{ @contractor['email'] }}</td>
+                        <td>{{ @contractor['phone'] }}</td>
+                        <td>{{ @contractor['address'] }}</td>
+                        <td>{{ @contractor['apt'] }}</td>
+                        <td>{{ @contractor['city'] }}</td>
+                        <td>{{ @contractor['state'] }}</td>
+                        <td>{{ @contractor['zip'] }}</td>
+                    </tr>
+                </repeat>
+            </table>
+        </div>
+
+
     <div class="container-fluid">
     <a href="contractor-register">Become A Contractor!</a>
 

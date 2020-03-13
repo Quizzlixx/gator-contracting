@@ -11,10 +11,36 @@
     <include href="views/navbar.html">
 
     <!-- body -->
-    <div class="container-fluid">
-
-
-    </div>
+        <div class="container-fluid">
+            <table>
+                <tr>
+                    <th>Company</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Suite</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                </tr>
+                <repeat group="{{ @client }}" value="{{ @client }}">
+                    <tr>
+                        <td>{{ @client['company'] }}</td>
+                        <td>{{ @client['first'] }}</td>
+                        <td>{{ @client['last'] }}</td>
+                        <td>{{ @client['phone'] }}</td>
+                        <td>{{ @client['email'] }}</td>
+                        <td>{{ @client['address'] }}</td>
+                        <td>{{ @client['suite'] }}</td>
+                        <td>{{ @client['city'] }}</td>
+                        <td>{{ @client['state'] }}</td>
+                        <td>{{ @client['zip'] }}</td>
+                    </tr>
+                </repeat>
+            </table>
+        </div>
 </body>
 <!-- footer -->
 <include href="views/footer.html">
