@@ -9,114 +9,118 @@
 <body>
 <!-- Nav bar -->
 <include href="views/navbar.html">
-    <form method="post" action="#">
-        <!-- body -->
-        <div class="container-fluid">
-            <!-- username -->
-<!--            <div>
-                <label><strong>username</strong></label>
-                <input type="text" name="username"><br>
-            </div>-->
+    <!-- body -->
+    <div class="container-fluid">
+        <h1>Register to be a contractor</h1>
+        <!-- form -->
+        <form method="post" action="#">
+            <!-- fieldset -->
+            <fieldset class="form-group">
+                <!-- username -->
+                <!--<div>
+                    <label><strong>username</strong></label>
+                    <input type="text" name="username"><br>
+                </div>-->
 
-            <!-- first name -->
-            <div>
-                <label><strong>First Name</strong></label>
-                <input type="text" name="first" value="{{ @contractor['first'] }}">
-                <check if="{{ @errors['first'] }}">
-                    <span class="err">{{ @errors['first'] }}</span>
-                </check><br>
-            </div>
+                <!-- first name -->
+                <div>
+                    <label for="first" class="control-label"><strong>First Name.</strong></label>
+                    <input type="text" id="first" name="first" class="form-control" value="{{ @contractor['first'] }}">
+                    <check if="{{ @errors['first'] }}">
+                        <span class="err">{{ @errors['first'] }}</span>
+                    </check>
+                    <br>
+                </div>
 
-            <!-- last name -->
-            <div>
-                <label><strong>Last Name</strong></label>
-                <input type="text" name="last" value="{{ @contractor['last'] }}">
-                <check if="{{ @errors['last'] }}">
-                    <span class="err">{{ @errors['last'] }}</span>
-                </check><br>
-            </div>
+                <!-- last name -->
+                <div>
+                    <label for="last" class="control-label"><strong>Last Name.</strong></label>
+                    <input type="text" id="last" name="last" class="form-control" value="{{ @contractor['last'] }}">
+                    <check if="{{ @errors['last'] }}">
+                        <span class="err">{{ @errors['last'] }}</span>
+                    </check>
+                    <br>
+                </div>
 
-            <!-- title -->
-            <div>
-                <label><strong>Title</strong></label>
-                <input type="text" name="title" value="{{ @contractor['title'] }}">
-                <check if="{{ @errors['title'] }}">
-                    <span class="err">{{ @errors['title'] }}</span>
-                </check>
-            </div>
+                <!-- title -->
+                <div>
+                    <label for="title" class="control-label"><strong>Title.</strong></label>
+                    <input type="text" id="title" name="title" class="form-control" value="{{ @contractor['title'] }}">
+                    <check if="{{ @errors['title'] }}">
+                        <span class="err">{{ @errors['title'] }}</span>
+                    </check>
+                </div>
 
-            <!-- email -->
-            <div>
-                <label><strong>Email</strong></label>
-                <input type="text" name="email" value="{{ @contractor['email'] }}">
-                <check if="{{ @errors['email'] }}">
-                    <span class="err">{{ @errors['email'] }}</span>
-                </check>
-            </div>
+                <!-- email -->
+                <div>
+                    <label for="email" class="control-label"><strong>Email.</strong></label>
+                    <input type="text" id="email" name="email" class="form-control" value="{{ @contractor['email'] }}">
+                    <check if="{{ @errors['email'] }}">
+                        <span class="err">{{ @errors['email'] }}</span>
+                    </check>
+                </div>
 
-            <!-- phone -->
-            <div>
-                <label><strong>Phone</strong></label>
-                <input type="text" name="phone" value="{{ @contractor['phone'] }}">
-                <check if="{{ @errors['phone'] }}">
-                    <span class="err">{{ @errors['phone'] }}</span>
-                </check>
-            </div>
+                <!-- phone -->
+                <div>
+                    <label for="phone" class="control-label"><strong>Phone.</strong></label>
+                    <input type="text" id="phone" name="phone" class="form-control" value="{{ @contractor['phone'] }}">
+                    <check if="{{ @errors['phone'] }}">
+                        <span class="err">{{ @errors['phone'] }}</span>
+                    </check>
+                </div>
 
-            <!-- address -->
-            <div>
-                <label><strong>address</strong></label>
-                <input type="text" name="address" value="{{ @contractor['address'] }}">
-                <check if="{{ @errors['address'] }}">
-                    <span class="err">{{ @errors['address'] }}</span>
-                </check>
-            </div>
+                <!-- address -->
+                <div>
+                    <label for="address" class="control-label"><strong>address.</strong></label>
+                    <input type="text" id="address" name="address" class="form-control" value="{{ @contractor['address'] }}">
+                    <check if="{{ @errors['address'] }}">
+                        <span class="err">{{ @errors['address'] }}</span>
+                    </check>
+                </div>
 
-            <!-- apt -->
-            <div>
-                <label><strong>apt</strong></label>
-                <input type="text" name="apt" value="{{ @contractor['apt'] }}">
-                <check if="{{ @errors['apt'] }}">
-                    <span class="err">{{ @errors['apt'] }}</span>
-                </check>
-            </div>
+                <!-- apt -->
+                <div>
+                    <label for="suite" class="control-label"><strong>suite.</strong></label>
+                    <input type="text" id="suite" name="apt" class="form-control" value="{{ @contractor['apt'] }}">
+                </div>
 
-            <!-- city -->
-            <div>
-                <label><strong>City</strong></label>
-                <input type="text" name="city" value="{{ @contractor['city'] }}">
-                <check if="{{ @errors['city'] }}">
-                    <span class="err">{{ @errors['city'] }}</span>
-                </check>
-            </div>
+                <!-- city -->
+                <div>
+                    <label for="city" class="control-label"><strong>City.</strong></label>
+                    <input type="text" id="city" name="city" class="form-control" value="{{ @contractor['city'] }}">
+                    <check if="{{ @errors['city'] }}">
+                        <span class="err">{{ @errors['city'] }}</span>
+                    </check>
+                </div>
 
-            <!-- state -->
-            <div>
-                <label><strong>State.</strong></label><br>
-                <select name="state">
-                    <option>Select a State</option>
-                    <repeat group="{{ @states }}" value="{{ @stateOption }}">
-                        <option value="{{ @stateOption }}"
-                        <check if="{{ @state == @stateOption }}">
-                            selected="selected"
-                        </check>
-                        >{{ @stateOption }}
-                        </option>
-                    </repeat>
-                </select>
-            </div>
+                <!-- state -->
+<!--                <div>-->
+                    <label for="state" class="control-label"><strong>State.</strong></label><br>
+                    <select id="state" name="state" class="form-control">
+                        <option value="none">-- Select a State --</option>
+                        <repeat group="{{ @states }}" key="{{ @stateKey }}" value="{{ @stateOption }}">
+                            <option value="{{ @stateKey }}"
+                            <check if="{{ @stateKey == @contractor['state'] }}">
+                                selected="selected"
+                            </check>
+                            >{{ @stateOption }}
+                            </option>
+                        </repeat>
+                    </select>
+<!--                </div>-->
 
-            <!-- zip -->
-            <div>
-                <label><strong>Zip Code</strong></label>
-                <input type="text" name="zip" value="{{ @contractor['zip'] }}">
-                <check if="{{ @errors['zip'] }}">
-                    <span class="err">{{ @errors['zip'] }}</span>
-                </check>
-            </div>
-            <!-- submit button -->
-            <button class="btn-primary" type="submit">Submit</button>
-    </form>
+                <!-- zip -->
+                <div>
+                    <label for="zip" class="control-label"><strong>Zip Code.</strong></label>
+                    <input type="text" id="zip" name="zip" class="form-control" value="{{ @contractor['zip'] }}">
+                    <check if="{{ @errors['zip'] }}">
+                        <span class="err">{{ @errors['zip'] }}</span>
+                    </check>
+                </div>
+                <!-- submit button -->
+                <button class="btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
     </div>
 </body>
 <!-- footer -->
