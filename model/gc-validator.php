@@ -172,7 +172,7 @@ class GcValidator
      */
     public function validZip($zip)
     {
-        if (!preg_match('/^\d{5}$|^\d{5}-\d{4}$/gm', $zip)) {
+        if (!preg_match('/^(\d{5})$|^(\d{5}-\d{4})$/', $zip)) {
             $this->_errors['zip'] = "Valid zip code is required: XXXXX OR XXXXX-XXXX";
         }
 //        if (empty($zip)) {

@@ -118,7 +118,7 @@
                 <!-- zip -->
                 <label for="zip" class="control-label"><strong>Zip Code</strong></label>
                 <input type="text" name="zip" id="zip" class="form-control" value="{{ @client['zip'] }}">
-                <check if="{{ isset(@errors['zip']) }}">
+                <check if="{{ @errors['zip'] }}">
                     <label class="text-danger">{{ @errors['zip'] }}</label>
                 </check>
                 <br>
