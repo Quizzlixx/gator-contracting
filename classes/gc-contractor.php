@@ -76,7 +76,8 @@ class GcContractor
      * @param $_state
      * @param $_zip
      */
-    public function __construct($_username, $_first, $_last, $_title, $_email, $_phone, $_address, $_apt, $_city, $_state, $_zip)
+    public function __construct($_username, $_first, $_last, $_title, $_email, $_phone, $_address, $_apt, $_city,
+                                $_state, $_zip)
     {
         $this->_username = $_username;
         $this->_first = $_first;
