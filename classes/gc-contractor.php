@@ -1,57 +1,69 @@
 <?php
 
 /**
- * Class GcContractor
+ * Class GcContractor creates a contractor object to be inserted into the database.
  */
 class GcContractor
 {
     /**
+     * Username for a contractor
      * @var
      */
     private $_username;
     /**
+     * First name
      * @var
      */
     private $_first;
     /**
+     * Last name
      * @var
      */
     private $_last;
     /**
+     * Job title
      * @var
      */
     private $_title;
     /**
+     * Email address
      * @var
      */
     private $_email;
     /**
+     * Phone number
      * @var
      */
     private $_phone;
     /**
+     * Street address
      * @var
      */
     private $_address;
     /**
+     * Apartment number OPTIONAL
      * @var
      */
     private $_apt;
     /**
+     * City of residence
      * @var
      */
     private $_city;
     /**
+     * State of residence
      * @var
      */
     private $_state;
     /**
+     * US postal code
      * @var
      */
     private $_zip;
 
     /**
      * GcContractor constructor.
+     * Creates a contractor object
      * @param $_username
      * @param $_first
      * @param $_last
@@ -80,6 +92,7 @@ class GcContractor
     }
 
     /**
+     * Gets the username
      * @return mixed
      */
     public function getUsername()
@@ -88,6 +101,7 @@ class GcContractor
     }
 
     /**
+     * Sets the username
      * @param mixed $username
      */
     public function setUsername($username)
@@ -96,6 +110,7 @@ class GcContractor
     }
 
     /**
+     * Gets first name
      * @return mixed
      */
     public function getFirst()
@@ -104,6 +119,7 @@ class GcContractor
     }
 
     /**
+     * Sets first name
      * @param mixed $first
      */
     public function setFirst($first)
@@ -112,6 +128,7 @@ class GcContractor
     }
 
     /**
+     * Get last name
      * @return mixed
      */
     public function getLast()
@@ -120,6 +137,7 @@ class GcContractor
     }
 
     /**
+     * Set last name
      * @param mixed $last
      */
     public function setLast($last)
@@ -128,6 +146,7 @@ class GcContractor
     }
 
     /**
+     * Get job title
      * @return mixed
      */
     public function getTitle()
@@ -136,6 +155,7 @@ class GcContractor
     }
 
     /**
+     * Set job title
      * @param mixed $title
      */
     public function setTitle($title)
@@ -144,6 +164,7 @@ class GcContractor
     }
 
     /**
+     * Get email address
      * @return mixed
      */
     public function getEmail()
@@ -152,6 +173,7 @@ class GcContractor
     }
 
     /**
+     * Set email address
      * @param mixed $email
      */
     public function setEmail($email)
@@ -160,6 +182,7 @@ class GcContractor
     }
 
     /**
+     * Get 10 digit phone number
      * @return mixed
      */
     public function getPhone()
@@ -168,6 +191,7 @@ class GcContractor
     }
 
     /**
+     * Set 10 digit phone number
      * @param mixed $phone
      */
     public function setPhone($phone)
@@ -176,6 +200,7 @@ class GcContractor
     }
 
     /**
+     * Get street address
      * @return mixed
      */
     public function getAddress()
@@ -184,6 +209,7 @@ class GcContractor
     }
 
     /**
+     * Set street address
      * @param mixed $address
      */
     public function setAddress($address)
@@ -192,6 +218,7 @@ class GcContractor
     }
 
     /**
+     * Get apartment number OPTIONAL
      * @return mixed
      */
     public function getApt()
@@ -200,6 +227,7 @@ class GcContractor
     }
 
     /**
+     * Set apartment number OPTIONAL
      * @param mixed $apt
      */
     public function setApt($apt)
@@ -208,6 +236,7 @@ class GcContractor
     }
 
     /**
+     * Get city of residence
      * @return mixed
      */
     public function getCity()
@@ -216,6 +245,7 @@ class GcContractor
     }
 
     /**
+     * Set city of residence
      * @param mixed $city
      */
     public function setCity($city)
@@ -224,6 +254,7 @@ class GcContractor
     }
 
     /**
+     * Get state of residence
      * @return mixed
      */
     public function getState()
@@ -232,6 +263,7 @@ class GcContractor
     }
 
     /**
+     * Set state of residence
      * @param mixed $state
      */
     public function setState($state)
@@ -240,6 +272,7 @@ class GcContractor
     }
 
     /**
+     * Get US postal code
      * @return mixed
      */
     public function getZip()
@@ -248,6 +281,7 @@ class GcContractor
     }
 
     /**
+     * Set US postal code
      * @param mixed $zip
      */
     public function setZip($zip)

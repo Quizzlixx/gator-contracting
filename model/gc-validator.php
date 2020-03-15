@@ -1,15 +1,18 @@
 <?php
 
 /**
- * Class GcValidator
+ * Class GcValidator validates the data given on the client and contractor forms. This will return an array of errors if
+ * the forms are invalid.
  */
 class GcValidator
 {
     /**
+     * F3 variable
      * @var
      */
     private $_f3;
     /**
+     * Error array to capture if data is not valid
      * @var array
      */
     private $_errors;
@@ -25,6 +28,7 @@ class GcValidator
     }
 
     /**
+     * If there are errors, the form is not valid
      * @return array
      */
     public function getGErrors()
@@ -33,12 +37,13 @@ class GcValidator
     }
 
     /**
-     * Checks whether the personal information form is valid
+     * Checks whether the client information form is valid by returning the error array if it is not empty
      *
      * @return bool
      */
     public function validClient()
     {
+        $this->validUsername($_POST['username']);
         $this->validCompany($_POST['company']);
         $this->validFirst($_POST['first']);
         $this->validLast($_POST['last']);
@@ -46,34 +51,48 @@ class GcValidator
         $this->validEmail($_POST['email']);
         $this->validAddress($_POST['address']);
         $this->validCity($_POST['city']);
+        $this->validState($_POST['state'], $this->_f3);
         $this->validZip($_POST['zip']);
 
         // if the $_errors array is empty, then we have valid data
         return empty($this->_errors);
     }
 
+    /**
+     * Checks whether the contractor information form is valid by returning the error array if it is not empty
+     * @return bool
+     */
     public function validContractor()
     {
+        $this->validUsername($_POST['username']);
         $this->validFirst($_POST['first']);
         $this->validLast($_POST['last']);
         $this->validTitle($_POST['title']);
         $this->validEmail($_POST['email']);
         $this->validPhone($_POST['phone']);
         $this->validAddress($_POST['address']);
-        $this->validApt($_POST['apt']);
         $this->validCity($_POST['city']);
+        $this->validState($_POST['state'], $this->_f3);
         $this->validZip($_POST['zip']);
 
         return empty($this->_errors);
     }
-//    public function validUsername($username)
-//    {
-//        if (empty(trim($username))) {
-//            $this->_errors['company'] = "Username is required.";
-//        }
-//    }
 
     /**
+     * TODO do we query the database here?
+     * @param $username
+     */
+    public function validUsername($username)
+    {
+        if (empty(trim($username))) {
+            $this->_errors['username'] = "Please enter a username.";
+        } else if (!empty($GLOBALS['db']->queryUsername($username))) {
+            $this->_errors['username'] = "This username is already in use.";
+        }
+    }
+
+    /**
+     * Checks to see if the company field is empty.
      * @param $company
      */
     public function validCompany($company)
@@ -84,12 +103,17 @@ class GcValidator
     }
 
 
+    /**
+     * Checks to see if the job title field is empty
+     * @param $title
+     */
     public function validTitle($title)
     {
         if (empty(trim($title))) {
             $this->_errors['title'] = "Contractor title is required.";
         }
     }
+
     /**
      * Takes a variable and returns true if it is not empty and contains only letters
      *
@@ -120,6 +144,7 @@ class GcValidator
     }
 
     /**
+     * Checks to see if the phone number format matches the regular expression
      * @param $number
      * @return void
      */
@@ -131,6 +156,7 @@ class GcValidator
     }
 
     /**
+     * Checks to see if the email field matches the valid email filter
      * @param $email
      */
     public function validEmail($email)
@@ -141,6 +167,7 @@ class GcValidator
     }
 
     /**
+     * Checks to see if  the address field is empty
      * @param $address
      */
     public function validAddress($address)
@@ -150,14 +177,8 @@ class GcValidator
         }
     }
 
-    public function validApt($apt)
-    {
-        if (empty($apt)) {
-            $this->_errors['apt'] = "please enter a apt.";
-        }
-    }
-
     /**
+     * Checks to see if the city field is empty
      * @param $city
      */
     public function validCity($city)
@@ -167,7 +188,17 @@ class GcValidator
         }
     }
 
+    public function validState($state, $f3)
+    {
+        if ($state == "none") {
+            $this->_errors['state'] = "Please select a state.";
+        } else if (!in_array($state, $f3->get('states'))) {
+            $this->_errors['state'] = "Please select a valid state from the dropdown menu.";
+        }
+    }
+
     /**
+     * Checks the regular expression to see if the zip code field is correct
      * @param $zip
      */
     public function validZip($zip)
@@ -175,8 +206,5 @@ class GcValidator
         if (!preg_match('/^(\d{5})$|^(\d{5}-\d{4})$/', $zip)) {
             $this->_errors['zip'] = "Valid zip code is required: XXXXX OR XXXXX-XXXX";
         }
-//        if (empty($zip)) {
-//            $this->_errors['zip'] = "Please enter a zip code.";
-//        }
     }
 }

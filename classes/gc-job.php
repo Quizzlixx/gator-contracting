@@ -1,31 +1,37 @@
 <?php
 
 /**
- * Class GcJob
+ * Class GcJob creates a job object to be inserted into the database
  */
 class GcJob
 {
     /**
+     * Job title
      * @var
      */
     private $_title;
     /**
+     * Job description
      * @var
      */
     private $_description;
     /**
+     * Salary: Hourly or lump sum
      * @var
      */
     private $_salary;
     /**
+     * The company or entity looking to fill positions
      * @var
      */
     private $_client;
     /**
+     * How long the job will be
      * @var
      */
     private $_duration;
     /**
+     * The expected start date of the job
      * @var
      */
     private $_start;

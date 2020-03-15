@@ -7,95 +7,100 @@
         <title>Gator Contracting</title>
         </head>
 <body>
-<!-- Nav bar -->
+<!-- navbar -->
 <include href="views/navbar.html">
+
     <!-- body -->
     <div class="container-fluid">
         <h1>Register to be a contractor</h1>
         <!-- form -->
         <form method="post" action="#">
+
             <!-- fieldset -->
             <fieldset class="form-group">
+
                 <!-- username -->
-                <!--<div>
-                    <label><strong>username</strong></label>
-                    <input type="text" name="username"><br>
-                </div>-->
+                <label for="username" class="control-label"><strong>Username</strong>
+                    <input type="text" name="username" id="username" class="form-control"
+                           value="{{ @contractor['username'] }}">
+                    <check if="{{ isset(@errors['username']) }}">
+                        <label class="text-danger">{{ @errors['username'] }}</label>
+                    </check>
+                </label>
+                <br>
 
                 <!-- first name -->
-                <div>
-                    <label for="first" class="control-label"><strong>First Name.</strong></label>
+                <label for="first" class="control-label"><strong>First Name</strong>
                     <input type="text" id="first" name="first" class="form-control" value="{{ @contractor['first'] }}">
-                    <check if="{{ @errors['first'] }}">
-                        <span class="err">{{ @errors['first'] }}</span>
+                    <check if="{{ isset(@errors['first']) }}">
+                        <label class="text-danger">{{ @errors['first'] }}</label>
                     </check>
-                    <br>
-                </div>
+                </label>
+                <br>
 
                 <!-- last name -->
-                <div>
-                    <label for="last" class="control-label"><strong>Last Name.</strong></label>
+                <label for="last" class="control-label"><strong>Last Name</strong>
                     <input type="text" id="last" name="last" class="form-control" value="{{ @contractor['last'] }}">
-                    <check if="{{ @errors['last'] }}">
-                        <span class="err">{{ @errors['last'] }}</span>
+                    <check if="{{ isset(@errors['last']) }}">
+                        <label class="text-danger">{{ @errors['last'] }}</label>
                     </check>
-                    <br>
-                </div>
+                </label>
+                <br>
 
                 <!-- title -->
-                <div>
-                    <label for="title" class="control-label"><strong>Title.</strong></label>
+                <label for="title" class="control-label"><strong>Job Title</strong>
                     <input type="text" id="title" name="title" class="form-control" value="{{ @contractor['title'] }}">
-                    <check if="{{ @errors['title'] }}">
-                        <span class="err">{{ @errors['title'] }}</span>
+                    <check if="{{ isset(@errors['title']) }}">
+                        <label class="text-danger">{{ @errors['title'] }}</label>
                     </check>
-                </div>
+                </label>
+                <br>
 
                 <!-- email -->
-                <div>
-                    <label for="email" class="control-label"><strong>Email.</strong></label>
+                <label for="email" class="control-label"><strong>Email Address</strong>
                     <input type="text" id="email" name="email" class="form-control" value="{{ @contractor['email'] }}">
-                    <check if="{{ @errors['email'] }}">
-                        <span class="err">{{ @errors['email'] }}</span>
+                    <check if="{{ isset(@errors['email']) }}">
+                        <label class="text-danger">{{ @errors['email'] }}</label>
                     </check>
-                </div>
+                </label>
+                <br>
 
                 <!-- phone -->
-                <div>
-                    <label for="phone" class="control-label"><strong>Phone.</strong></label>
+                <label for="phone" class="control-label"><strong>Phone Number</strong>
                     <input type="text" id="phone" name="phone" class="form-control" value="{{ @contractor['phone'] }}">
-                    <check if="{{ @errors['phone'] }}">
-                        <span class="err">{{ @errors['phone'] }}</span>
+                    <check if="{{ isset(@errors['phone']) }}">
+                        <label class="text-danger">{{ @errors['phone'] }}</label>
                     </check>
-                </div>
+                </label>
+                <br>
 
                 <!-- address -->
-                <div>
-                    <label for="address" class="control-label"><strong>address.</strong></label>
-                    <input type="text" id="address" name="address" class="form-control" value="{{ @contractor['address'] }}">
-                    <check if="{{ @errors['address'] }}">
-                        <span class="err">{{ @errors['address'] }}</span>
+                <label for="address" class="control-label"><strong>Address</strong>
+                    <input type="text" id="address" name="address" class="form-control"
+                           value="{{ @contractor['address'] }}">
+                    <check if="{{ isset(@errors['address']) }}">
+                        <label class="text-danger">{{ @errors['address'] }}</label>
                     </check>
-                </div>
+                </label>
+                <br>
 
                 <!-- apt -->
-                <div>
-                    <label for="suite" class="control-label"><strong>suite.</strong></label>
+                <label for="suite" class="control-label"><strong>Apt.</strong>
                     <input type="text" id="suite" name="apt" class="form-control" value="{{ @contractor['apt'] }}">
-                </div>
+                </label>
+                <br>
 
                 <!-- city -->
-                <div>
-                    <label for="city" class="control-label"><strong>City.</strong></label>
+                <label for="city" class="control-label"><strong>City</strong>
                     <input type="text" id="city" name="city" class="form-control" value="{{ @contractor['city'] }}">
-                    <check if="{{ @errors['city'] }}">
-                        <span class="err">{{ @errors['city'] }}</span>
+                    <check if="{{ isset(@errors['city']) }}">
+                        <label class="text-danger">{{ @errors['city'] }}</label>
                     </check>
-                </div>
+                </label>
+                <br>
 
                 <!-- state -->
-<!--                <div>-->
-                    <label for="state" class="control-label"><strong>State.</strong></label><br>
+                <label for="state" class="control-label"><strong>State</strong>
                     <select id="state" name="state" class="form-control">
                         <option value="none">-- Select a State --</option>
                         <repeat group="{{ @states }}" key="{{ @stateKey }}" value="{{ @stateOption }}">
@@ -107,18 +112,19 @@
                             </option>
                         </repeat>
                     </select>
-<!--                </div>-->
+                </label>
+                <br>
 
                 <!-- zip -->
-                <div>
-                    <label for="zip" class="control-label"><strong>Zip Code.</strong></label>
+                <label for="zip" class="control-label"><strong>Zip Code</strong>
                     <input type="text" id="zip" name="zip" class="form-control" value="{{ @contractor['zip'] }}">
-                    <check if="{{ @errors['zip'] }}">
-                        <span class="err">{{ @errors['zip'] }}</span>
+                    <check if="{{ isset(@errors['zip']) }}">
+                        <label class="text-danger">{{ @errors['zip'] }}</label>
                     </check>
-                </div>
+                </label>
+                <br>
                 <!-- submit button -->
-                <button class="btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
     </div>

@@ -1,7 +1,10 @@
 <?php
 // Requires
-require_once('../../../config.php');
+require_once('/home/klowgree/config-dating.php');
 
+/**
+ * Class GcDatabase connects to the database to perform CRUD functions.
+ */
 class GcDatabase
 {
     // PDO object
@@ -16,7 +19,7 @@ class GcDatabase
         try {
             // create a new PDO connection
             $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-            echo "Connected!";
+//            echo "Connected!";
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -87,6 +90,8 @@ class GcDatabase
 
         // get results
         # no results to return
+
+        echo "success";
     }
 
     /**
@@ -118,22 +123,22 @@ class GcDatabase
     }
 
     /**
-     * TODO: Gets a single job for search functionality. Not sure how to implement this yet
-     * Queries the database for a job number
-     * @param $jobNumber
+     * TODO: Gets all the jobs that match the job title
+     * Queries the database for a job title
+     * @param $jobTitle
      * @return array
      */
-    function getJob($jobNumber)
+    function getJob($jobTitle)
     {
         // define query
         $sql = "SELECT * FROM job
-                WHERE job_id = :jobID";
+                WHERE job.title = :title";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
 
         // bind params
-        $statement->bindParam(":jobID", $jobNumber);
+        $statement->bindParam(":title", $jobTitle);
 
         // execute statement
         $statement->execute();
@@ -144,12 +149,13 @@ class GcDatabase
     }
 
     /**
-     * Gets a list of jobs on the job panel
+     * Queries the database for all jobs without contractors attached.
      */
     function getJobs()
     {
         // Define query
-        $sql = "SELECT * FROM job";
+        $sql = "SELECT * FROM job
+                WHERE job.contractor_id = NULL";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
@@ -161,6 +167,27 @@ class GcDatabase
         $statement->execute();
 
         // return results
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Queries the database to see if a username is taken
+     *
+     * @param $username
+     * @return array
+     */
+    function queryUsername($username)
+    {
+        $sql = "SELECT contractor.username, client.username
+                    FROM contractor, client
+                    WHERE contractor.username =  OR client.username = ";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam(":username", $username);
+
+        $statement->execute();
+
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
