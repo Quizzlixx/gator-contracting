@@ -32,14 +32,15 @@ class GcDatabase
     function insertContractor($contractor)
     {
         // define query
-        $sql = "INSERT INTO contractor(`first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
+        $sql = "INSERT INTO contractor(`username`, `first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
                                         `zip`)
-                VALUES(:first, :last, :title, :email, :phone, :address, :suite, :city, :state, :zip)";
+                VALUES(:username, :first, :last, :title, :email, :phone, :address, :suite, :city, :state, :zip)";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
 
         // bind params
+        $statement->bindParam(':username', $contractor->getUsername());
         $statement->bindParam(':first', $contractor->getFirst());
         $statement->bindParam(':last', $contractor->getLast());
         $statement->bindParam(':title', $contractor->getTitle());
@@ -65,18 +66,18 @@ class GcDatabase
     function insertClient($client)
     {
         // define query
-        $sql = "INSERT INTO client(`company`, `first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
+        $sql = "INSERT INTO client(`username`, `company`, `first`, `last`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
                                         `zip`)
-                VALUES(:company, :first, :last, :title, :email, :phone, :address, :apt, :city, :state, :zip)";
+                VALUES(:username, :company, :first, :last, :email, :phone, :address, :apt, :city, :state, :zip)";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
 
         // bind params
+        $statement->bindParam(':username', $client->getUsername());
         $statement->bindParam(':company', $client->getCompany());
         $statement->bindParam(':first', $client->getFirst());
         $statement->bindParam(':last', $client->getLast());
-        $statement->bindParam(':title', $client->getTitle());
         $statement->bindParam(':email', $client->getEmail());
         $statement->bindParam(':phone', $client->getPhone());
         $statement->bindParam(':address', $client->getAddress());
