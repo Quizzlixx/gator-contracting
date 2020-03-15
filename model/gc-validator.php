@@ -51,7 +51,6 @@ class GcValidator
         $this->validEmail($_POST['email']);
         $this->validAddress($_POST['address']);
         $this->validCity($_POST['city']);
-        $this->validState($_POST['state'], $this->_f3);
         $this->validZip($_POST['zip']);
 
         // if the $_errors array is empty, then we have valid data
@@ -72,7 +71,6 @@ class GcValidator
         $this->validPhone($_POST['phone']);
         $this->validAddress($_POST['address']);
         $this->validCity($_POST['city']);
-        $this->validState($_POST['state'], $this->_f3);
         $this->validZip($_POST['zip']);
 
         return empty($this->_errors);
@@ -185,15 +183,6 @@ class GcValidator
     {
         if (empty($city)) {
             $this->_errors['city'] = "Please enter a city.";
-        }
-    }
-
-    public function validState($state, $f3)
-    {
-        if ($state == "none") {
-            $this->_errors['state'] = "Please select a state.";
-        } else if (!in_array($state, $f3->get('states'))) {
-            $this->_errors['state'] = "Please select a valid state from the dropdown menu.";
         }
     }
 
