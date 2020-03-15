@@ -48,7 +48,7 @@ class Routes
     }
 
     /**
-     * @param $f3
+     *
      */
     function contractorRegister($f3)
     {
@@ -59,7 +59,6 @@ class Routes
             $this->_val = new GcValidator($f3);
 
             if ($this->_val->validContractor()) {
-                $username = $_POST['username'];
                 $first = $_POST['first'];
                 $last = $_POST['last'];
                 $title = $_POST['title'];
@@ -71,24 +70,20 @@ class Routes
                 $state = $_POST['state'];
                 $zip = $_POST['zip'];
 
-                $contractor = new GcContractor($username, $first, $last, $title, $email, $phone, $address, $apt, $city,
-                                                $state, $zip);
+                $contractor = new GcContractor($first, $last, $title, $email, $phone, $address, $apt, $city, $state, $zip);
                 var_dump($contractor);
 
                 $_SESSION['contractor'] = $contractor;
 
-                // insert into DB
-//                $GLOBALS['db']->insertContractor($contractor);
-
-//                $f3->reroute('/contractor');
-//                var_dump($_SESSION['contractor']);
-//                $_SESSION = array();
+                $f3->reroute('/contractor');
+                var_dump($_SESSION['contractor']);
+                $_SESSION = array();
             }
-//            else {
-//                $this->_f3->set('errors', $this->_val->getGErrors());
-//
-//                $this->_f3->set('contractor', $_POST);
-//            }
+            else {
+                $this->_f3->set('errors', $this->_val->getGErrors());
+
+                $this->_f3->set('contractor', $_POST);
+            }
         }
         $view = new Template();
         echo $view->render("views/contractor-register.html");
@@ -108,8 +103,8 @@ class Routes
      */
     function clientRegister($f3)
     {
-//        echo "POST" . var_dump($_POST) . "<br>";
-//        echo "SESSION" . var_dump($_SESSION) . "<br>";
+        echo "POST" . var_dump($_POST) . "<br>";
+        echo "SESSION" . var_dump($_SESSION) . "<br>";
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -118,7 +113,6 @@ class Routes
 
             if ($this->_val->validClient()) {
                 // get form values
-                $username = $_POST['username'];
                 $company = $_POST['company'];
                 $first = $_POST['first'];
                 $last = $_POST['last'];
@@ -131,23 +125,16 @@ class Routes
                 $zip = $_POST['zip'];
 
                 // instantiate object
-                $client = new GcClient($username, $company, $first, $last, $phone, $email, $address, $suite, $city,
-                                        $state, $zip);
+                $client = new GcClient($company, $first, $last, $phone, $email, $address, $suite, $city, $state, $zip);
 
                 // put client into session
                 $_SESSION['client'] = $client;
 
-                // send data to DB
-                $GLOBALS['db']->insertClient($client);
-
                 // reroute to client area
                 $f3->reroute('/client');
 
-                echo $f3->get('errors');
-
                 // unset session variable
                 $_SESSION = array();
-
             } else {
                 // Data was not valid
                 // Get errors from validator and add to f3 hive

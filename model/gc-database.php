@@ -1,6 +1,6 @@
 <?php
 // Requires
-require_once('/home/klowgree/config-dating.php');
+require_once('../../../config.php');
 
 /**
  * Class GcDatabase connects to the database to perform CRUD functions.
@@ -32,7 +32,7 @@ class GcDatabase
     function insertContractor($contractor)
     {
         // define query
-        $sql = "INSERT INTO contractor(`first`, `last`, `title`, `email`, `phone`, `address`, `suite`, `city`, `state`, 
+        $sql = "INSERT INTO contractor(`first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
                                         `zip`)
                 VALUES(:first, :last, :title, :email, :phone, :address, :suite, :city, :state, :zip)";
 
