@@ -1,7 +1,7 @@
 <?php
 // Requires
-require_once('../../../config.php');
-
+//require_once('../../../config.php');
+require_once('/home/klowgree/config-dating.php');
 /**
  * Class GcDatabase connects to the database to perform CRUD functions.
  */
@@ -59,6 +59,17 @@ class GcDatabase
         # no results to return
     }
 
+    function getContractors()
+    {
+        $sql = "SELECT * FROM contractor";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     /**
      * Client registration takes a client object and inserts it into the database
      * @param $client
@@ -92,7 +103,17 @@ class GcDatabase
         // get results
         # no results to return
 
-        echo "success";
+    }
+
+    function getClients()
+    {
+        $sql = "SELECT * FROM client";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**

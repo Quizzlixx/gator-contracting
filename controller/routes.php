@@ -32,6 +32,9 @@ class Routes
         echo $view->render("views/home.html");
     }
 
+    /**
+     *
+     */
     function main()
     {
         $view = new Template();
@@ -39,16 +42,16 @@ class Routes
     }
 
     /**
-     *
      */
     function contractor()
     {
+        $GLOBALS['db']->getContractors();
         $view = new Template();
         echo $view->render("views/contractor.html");
     }
 
     /**
-     *
+     * @param $f3
      */
     function contractorRegister($f3)
     {
@@ -94,6 +97,7 @@ class Routes
      */
     function client()
     {
+        $GLOBALS['db']->getClients();
         $view = new Template();
         echo $view->render("views/client.html");
     }
@@ -154,6 +158,7 @@ class Routes
      */
     function jobs()
     {
+        $GLOBALS['db']->getJobs();
         $view = new Template();
         echo $view->render("views/jobs.html");
     }
