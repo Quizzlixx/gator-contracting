@@ -45,7 +45,9 @@ class Routes
      */
     function contractor()
     {
-        $GLOBALS['db']->getContractors();
+        $contractors = $GLOBALS['db']->getContractors();
+        $this->_f3->set('contractors', $contractors);
+
         $view = new Template();
         echo $view->render("views/contractor.html");
     }
@@ -100,7 +102,8 @@ class Routes
      */
     function client()
     {
-        $GLOBALS['db']->getClients();
+        $clients = $GLOBALS['db']->getClients();
+        $this->_f3->set('clients', $clients);
 
         $view = new Template();
         echo $view->render("views/client.html");
@@ -164,7 +167,9 @@ class Routes
      */
     function jobs()
     {
-        $GLOBALS['db']->getJobs();
+        $jobs = $GLOBALS['db']->getJobs();
+        $this->_f3->set('jobs', $jobs);
+
         $view = new Template();
         echo $view->render("views/jobs.html");
     }
