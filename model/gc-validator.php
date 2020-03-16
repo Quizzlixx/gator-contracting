@@ -84,8 +84,11 @@ class GcValidator
     {
         if (empty(trim($username))) {
             $this->_errors['username'] = "Please enter a username.";
-        } else if (!empty($GLOBALS['db']->queryUsername($username))) {
-            $this->_errors['username'] = "This username is already in use.";
+        } else {
+            $user = $GLOBALS['db']->queryUsername($username);
+            if ($user) {
+                $this->_errors['username'] = "That username is already taken";
+            }
         }
     }
 
