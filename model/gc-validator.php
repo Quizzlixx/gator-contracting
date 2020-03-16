@@ -77,7 +77,9 @@ class GcValidator
     }
 
     /**
-     * TODO do we query the database here?
+     * Checks to see if the username is empty.
+     * If the username is not empty, query the database to see if the username exists. If it does, notify the user that
+     * the username is already taken.
      * @param $username
      */
     public function validUsername($username)
