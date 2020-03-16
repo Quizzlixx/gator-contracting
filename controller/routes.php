@@ -62,6 +62,7 @@ class Routes
             $this->_val = new GcValidator($f3);
 
             if ($this->_val->validContractor()) {
+                $username = $_POST['username'];
                 $first = $_POST['first'];
                 $last = $_POST['last'];
                 $title = $_POST['title'];
@@ -73,7 +74,7 @@ class Routes
                 $state = $_POST['state'];
                 $zip = $_POST['zip'];
 
-                $contractor = new GcContractor($first, $last, $title, $email, $phone, $address, $apt, $city, $state, $zip);
+                $contractor = new GcContractor($username, $first, $last, $title, $email, $phone, $address, $apt, $city, $state, $zip);
                 var_dump($contractor);
 
                 $_SESSION['contractor'] = $contractor;
@@ -117,9 +118,11 @@ class Routes
 
             if ($this->_val->validClient()) {
                 // get form values
+                $username = $_POST['username'];
                 $company = $_POST['company'];
                 $first = $_POST['first'];
                 $last = $_POST['last'];
+                $title = "";
                 $phone = $_POST['phone'];
                 $email = $_POST['email'];
                 $address = $_POST['address'];
@@ -129,7 +132,8 @@ class Routes
                 $zip = $_POST['zip'];
 
                 // instantiate object
-                $client = new GcClient($company, $first, $last, $phone, $email, $address, $suite, $city, $state, $zip);
+                $client = new GcClient($username, $first, $last, $title, $phone, $email, $address, $suite, $city, $state, $zip);
+                $client->setCompany($company);
 
                 // put client into session
                 $_SESSION['client'] = $client;
