@@ -34,6 +34,12 @@ class Routes
         echo $view->render("views/home.html");
     }
 
+    function main()
+    {
+        $view = new Template();
+        echo $view->render("views/home.html");
+    }
+
     /**
      * Contractor route. Displays a list of all contractors registered in the database
      */
@@ -81,7 +87,8 @@ class Routes
 //                var_dump($_SESSION['contractor']);
 
                 $_SESSION = array();
-            } else {
+            }
+            else {
                 $this->_f3->set('errors', $this->_val->getGErrors());
 
                 $this->_f3->set('contractor', $_POST);
@@ -104,7 +111,7 @@ class Routes
     }
 
     /**
-     * Registration page for potential contract employees. Validates a client object, inserts it into the session array
+     * Registration page for potential contract employees. Validates a contractor object, inserts it into the session array
      * and database. Else, it will display what the user needs to do to correctly validate the form.
      * @param $f3
      */
