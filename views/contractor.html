@@ -3,50 +3,50 @@
 <head>
     <!-- header -->
     <include href="views/header.html">
-    <!-- title -->
-    <title>Gator Contracting</title>
-</head>
+        <!-- title -->
+        <title>Gator Contracting</title>
+        </head>
 <body>
-    <!-- Nav bar -->
-    <include href="views/navbar.html">
+<!-- Nav bar -->
+<include href="views/navbar.html">
 
     <!-- body -->
-        <div class="container-fluid">
-            <table>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Title</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>suite</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
-                </tr>
-                <repeat group="{{ @contractors }}" value="{{ @contractor }}">
-                    <tr>
-                        <td>{{ @contractor['first'] }}</td>
-                        <td>{{ @contractor['last'] }}</td>
-                        <td>{{ @contractor['title'] }}</td>
-                        <td>{{ @contractor['email'] }}</td>
-                        <td>{{ @contractor['phone'] }}</td>
-                        <td>{{ @contractor['address'] }}</td>
-                        <td>{{ @contractor['apt'] }}</td>
-                        <td>{{ @contractor['city'] }}</td>
-                        <td>{{ @contractor['state'] }}</td>
-                        <td>{{ @contractor['zip'] }}</td>
-                    </tr>
-                </repeat>
-            </table>
-        </div>
-
-
     <div class="container-fluid">
-    <a href="contractor-register" class="btn btn-primary">Become A Contractor!</a>
-
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Title</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>suite</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+            </tr>
+            <repeat group="{{ @contractors }}" value="{{ @contractor }}">
+                <tr>
+                    <td>{{ @contractor['first'] }}</td>
+                    <td>{{ @contractor['last'] }}</td>
+                    <td>{{ @contractor['title'] }}</td>
+                    <td>{{ @contractor['email'] }}</td>
+                    <td>{{ @contractor['phone'] }}</td>
+                    <td>{{ @contractor['address'] }}</td>
+                    <td>{{ @contractor['apt'] }}</td>
+                    <td>{{ @contractor['city'] }}</td>
+                    <td>{{ @contractor['state'] }}</td>
+                    <td>{{ @contractor['zip'] }}</td>
+                </tr>
+            </repeat>
+        </table>
     </div>
+
+    <br>
+    <div class="container-fluid">
+        <a href="contractor-register" class="btn btn-primary">Become A Contractor!</a>
+    </div>
+    <br>
 </body>
 <!-- footer -->
 <include href="views/footer.html">
