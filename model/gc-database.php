@@ -32,9 +32,9 @@ class GcDatabase
     function insertContractor($contractor)
     {
         // define query
-        $sql = "INSERT INTO contractor(`username`, `first`, `last`, `title`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
-                                        `zip`)
-                VALUES(:username, :first, :last, :title, :email, :phone, :address, :suite, :city, :state, :zip)";
+        $sql = "INSERT INTO klowgree_grc.contractor(username, first, last, title, email, phone, address, apt, city, state, 
+                                        zip)
+                VALUES(:username, :first, :last, :title, :email, :phone, :address, :apt, :city, :state, :zip)";
 
         // prepare statement
         $statement = $this->_dbh->prepare($sql);
@@ -47,7 +47,7 @@ class GcDatabase
         $statement->bindParam(':email', $contractor->getEmail());
         $statement->bindParam(':phone', $contractor->getPhone());
         $statement->bindParam(':address', $contractor->getAddress());
-        $statement->bindParam(':suite', $contractor->getApt());
+        $statement->bindParam(':apt', $contractor->getApt());
         $statement->bindParam(':city', $contractor->getCity());
         $statement->bindParam(':state', $contractor->getState());
         $statement->bindParam(':zip', $contractor->getZip());
@@ -76,9 +76,11 @@ class GcDatabase
      */
     function insertClient($client)
     {
+        var_dump($client);
+
         // define query
-        $sql = "INSERT INTO client(`username`, `company`, `first`, `last`, `email`, `phone`, `address`, `apt`, `city`, `state`, 
-                                        `zip`)
+        $sql = "INSERT INTO klowgree_grc.client(username, company, first, last, email, phone, address, apt, city, state, 
+                                        zip)
                 VALUES(:username, :company, :first, :last, :email, :phone, :address, :apt, :city, :state, :zip)";
 
         // prepare statement

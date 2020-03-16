@@ -79,6 +79,8 @@ class Routes
 
                 $_SESSION['contractor'] = $contractor;
 
+                $GLOBALS['db']->insertContractor($contractor);
+
                 $f3->reroute('/contractor');
                 var_dump($_SESSION['contractor']);
                 $_SESSION = array();
@@ -99,6 +101,7 @@ class Routes
     function client()
     {
         $GLOBALS['db']->getClients();
+
         $view = new Template();
         echo $view->render("views/client.html");
     }
@@ -108,9 +111,6 @@ class Routes
      */
     function clientRegister($f3)
     {
-        echo "POST" . var_dump($_POST) . "<br>";
-        echo "SESSION" . var_dump($_SESSION) . "<br>";
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // instantiate a validator
@@ -138,11 +138,13 @@ class Routes
                 // put client into session
                 $_SESSION['client'] = $client;
 
+                $GLOBALS['db']->insertClient($client);
+
                 // reroute to client area
                 $f3->reroute('/client');
 
                 // unset session variable
-                $_SESSION = array();
+//                $_SESSION = array();
             } else {
                 // Data was not valid
                 // Get errors from validator and add to f3 hive
