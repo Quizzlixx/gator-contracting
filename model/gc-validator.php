@@ -77,7 +77,8 @@ class GcValidator
     }
 
     /**
-     * TODO do we query the database here?
+     * Checks to see if the username field is empty.
+     * If it is not, query the database. If a matching username is found, notify the user.
      * @param $username
      */
     public function validUsername($username)
@@ -200,9 +201,10 @@ class GcValidator
         }
     }
 
-
-
-
+    /**
+     * Queries the database for a valid username. If none are found, the user cannot login
+     * @param $username
+     */
     public function loginUsername($username)
     {
         if (empty(trim($username))) {
@@ -210,9 +212,7 @@ class GcValidator
         } else {
             $user = $GLOBALS['db']->queryUsername($username);
             if (!$user) {
-                $this->_errors['username'] = "That username doesn't exist";
-            } else {
-                return true;
+                $this->_errors['username'] = "Invalid login.";
             }
         }
     }
