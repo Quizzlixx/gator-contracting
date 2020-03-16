@@ -7,8 +7,8 @@
  * https://klow.greenriverdev.com/328/gator-contracting/
  */
 //turn on error reporting
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 
 //require the autoload file
 require_once('vendor/autoload.php');
@@ -20,7 +20,7 @@ session_start();
 $f3 = Base::instance();
 
 // f3 debugging ON
-$f3->set('DEBUG', 3);
+//$f3->set('DEBUG', 3);
 
 // Instantiate a new controller
 $db = new GcDatabase();
@@ -53,14 +53,6 @@ $f3->route('GET /contractor', function () {
 
 $f3->route('GET /client', function () {
     $GLOBALS['routes']->client();
-});
-
-$f3->route('GET /jobs', function () {
-    $GLOBALS['routes']->jobs();
-});
-
-$f3->route('GET|POST /login', function ($f3) {
-    $GLOBALS['routes']->login($f3);
 });
 
 $f3->route('GET|POST /client-register', function ($f3) {

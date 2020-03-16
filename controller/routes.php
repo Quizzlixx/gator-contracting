@@ -1,21 +1,23 @@
 <?php
 
 /**
- * Class Routes
+ * Class Routes This file displays the routes the website will use for navigation.
  */
 class Routes
 {
     /**
+     * a private instance of the fat free framework variable to use F3 functionality
      * @var
      */
     private $_f3;
     /**
+     * a private instance of the validator variable
      * @var
      */
     private $_val;
 
     /**
-     * Routes constructor.
+     * Routes constructor that takes the f3 parameter for fat free framework functionality
      * @param $f3
      */
     function __construct($f3)
@@ -24,7 +26,7 @@ class Routes
     }
 
     /**
-     *
+     * Home route where users will be directed to first.
      */
     function home()
     {
@@ -33,15 +35,7 @@ class Routes
     }
 
     /**
-     *
-     */
-    function main()
-    {
-        $view = new Template();
-        echo $view->render("views/home.html");
-    }
-
-    /**
+     * Contractor route. Displays a list of all contractors registered in the database
      */
     function contractor()
     {
@@ -53,6 +47,8 @@ class Routes
     }
 
     /**
+     * Registration page for potential contract employees. Validates a contractor object, inserts it into the session array
+     * and database. Else, it will display what the user needs to do to correctly validate the form.
      * @param $f3
      */
     function contractorRegister($f3)
@@ -85,8 +81,7 @@ class Routes
 //                var_dump($_SESSION['contractor']);
 
                 $_SESSION = array();
-            }
-            else {
+            } else {
                 $this->_f3->set('errors', $this->_val->getGErrors());
 
                 $this->_f3->set('contractor', $_POST);
@@ -97,7 +92,7 @@ class Routes
     }
 
     /**
-     *
+     * Displays a list of clients registered in the database.
      */
     function client()
     {
@@ -109,6 +104,8 @@ class Routes
     }
 
     /**
+     * Registration page for potential contract employees. Validates a client object, inserts it into the session array
+     * and database. Else, it will display what the user needs to do to correctly validate the form.
      * @param $f3
      */
     function clientRegister($f3)
@@ -161,48 +158,4 @@ class Routes
         $view = new Template();
         echo $view->render("views/client-register.html");
     }
-
-    /**
-     * Renders a list of jobs on the job page.
-     */
-    function jobs()
-    {
-        $jobs = $GLOBALS['db']->getJobs();
-        $this->_f3->set('jobs', $jobs);
-
-        $view = new Template();
-        echo $view->render("views/jobs.html");
-    }
-
-    /**
-     * @param $f3
-     */
-    function login($f3)
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            // instantiate a validator
-            $this->_val = new GcValidator($f3);
-
-            if ($this->_val->validLogin()) {
-
-                // get form data
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-
-                $f3->reroute('/client');
-
-            } else {
-                // Data was not valid
-                // Get errors from validator and add to f3 hive
-                $this->_f3->set('errors', $this->_val->getGErrors());
-
-                // add POST array data to f3 hive for sticky form
-                $this->_f3->set('login', $_POST);
-            }
-        }
-        $view = new Template();
-        echo $view->render("views/login.html");
-    }
-
 }

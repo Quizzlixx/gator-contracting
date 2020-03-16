@@ -60,6 +60,10 @@ class GcDatabase
         # no results to return
     }
 
+    /**
+     * Gets everything from the contractor table to display on the contractor page
+     * @return array
+     */
     function getContractors()
     {
         $sql = "SELECT * FROM contractor";
@@ -108,6 +112,10 @@ class GcDatabase
 
     }
 
+    /**
+     * Gets everything from the client table to display on the client page
+     * @return array
+     */
     function getClients()
     {
         $sql = "SELECT * FROM client";
@@ -145,54 +153,6 @@ class GcDatabase
 
         // return results
         # no results to return
-    }
-
-    /**
-     * TODO: Gets all the jobs that match the job title
-     * Queries the database for a job title
-     * @param $jobTitle
-     * @return array
-     */
-    function getJob($jobTitle)
-    {
-        // define query
-        $sql = "SELECT * FROM job
-                WHERE job.title = :title";
-
-        // prepare statement
-        $statement = $this->_dbh->prepare($sql);
-
-        // bind params
-        $statement->bindParam(":title", $jobTitle);
-
-        // execute statement
-        $statement->execute();
-
-        // return results
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    }
-
-    /**
-     * Queries the database for all jobs without contractors attached.
-     */
-    function getJobs()
-    {
-        // Define query
-        $sql = "SELECT * FROM job
-                WHERE job.contractor_id = NULL";
-
-        // prepare statement
-        $statement = $this->_dbh->prepare($sql);
-
-        // bind params
-        # no params to bind
-
-        // execute statement
-        $statement->execute();
-
-        // return results
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /**

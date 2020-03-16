@@ -37,7 +37,7 @@ class GcValidator
     }
 
     /**
-     * Checks whether the client information form is valid by returning the error array if it is not empty
+     * Checks whether the client information form is valid by returning true if the error array is empty.
      *
      * @return bool
      */
@@ -58,7 +58,7 @@ class GcValidator
     }
 
     /**
-     * Checks whether the contractor information form is valid by returning the error array if it is not empty
+     * Checks whether the contractor information form is valid by returning true if the error array is empty
      * @return bool
      */
     public function validContractor()
@@ -76,17 +76,9 @@ class GcValidator
         return empty($this->_errors);
     }
 
-    public function validLogin()
-    {
-        $this->loginUsername($_POST['username']);
-//        $this->validPassword($_POST['password']);
-
-        return empty($this->errors);
-    }
-
     /**
      * Checks to see if the username field is empty.
-     * If it is not, query the database. If a matching username is found, notify the user.
+     * If it is not, query the database. If a matching username is found, notify the user via the errors array
      * @param $username
      */
     public function validUsername($username)
@@ -206,22 +198,6 @@ class GcValidator
     {
         if (!preg_match('/^(\d{5})$|^(\d{5}-\d{4})$/', $zip)) {
             $this->_errors['zip'] = "Valid zip code is required: XXXXX OR XXXXX-XXXX";
-        }
-    }
-
-    /**
-     * Queries the database for a valid username. If none are found, the user cannot login
-     * @param $username
-     */
-    public function loginUsername($username)
-    {
-        if (empty(trim($username))) {
-            $this->_errors['username'] = "Please enter a username.";
-        } else {
-            $user = $GLOBALS['db']->queryUsername($username);
-            if (!$user) {
-                $this->_errors['username'] = "Invalid login.";
-            }
         }
     }
 }
