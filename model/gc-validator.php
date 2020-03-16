@@ -77,9 +77,7 @@ class GcValidator
     }
 
     /**
-     * Checks to see if the username is empty.
-     * If the username is not empty, query the database to see if the username exists. If it does, notify the user that
-     * the username is already taken.
+     * TODO do we query the database here?
      * @param $username
      */
     public function validUsername($username)
@@ -199,6 +197,23 @@ class GcValidator
     {
         if (!preg_match('/^(\d{5})$|^(\d{5}-\d{4})$/', $zip)) {
             $this->_errors['zip'] = "Valid zip code is required: XXXXX OR XXXXX-XXXX";
+        }
+    }
+
+
+
+
+    public function loginUsername($username)
+    {
+        if (empty(trim($username))) {
+            $this->_errors['username'] = "Please enter a username.";
+        } else {
+            $user = $GLOBALS['db']->queryUsername($username);
+            if (!$user) {
+                $this->_errors['username'] = "That username doesn't exist";
+            } else {
+                return true;
+            }
         }
     }
 }
