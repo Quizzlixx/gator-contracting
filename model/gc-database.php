@@ -1,7 +1,7 @@
 <?php
 // Requires
-//require_once('../../../config.php');
-require_once('/home/klowgree/config-dating.php');
+require_once('../../../config.php');
+//require_once('/home/klowgree/config-dating.php');
 /**
  * Class GcDatabase connects to the database to perform CRUD functions.
  */
@@ -32,8 +32,8 @@ class GcDatabase
     function insertContractor($contractor)
     {
         // define query
-        $sql = "INSERT INTO klowgree_grc.contractor(username, first, last, title, email, phone, address, apt, city, state, 
-                                        zip)
+        $sql = "INSERT INTO czippgr1_grc.contractor(username, first, last, title, email, phone, address, apt, 
+                city, state, zip)
                 VALUES(:username, :first, :last, :title, :email, :phone, :address, :apt, :city, :state, :zip)";
 
         // prepare statement
@@ -76,10 +76,8 @@ class GcDatabase
      */
     function insertClient($client)
     {
-        var_dump($client);
-
         // define query
-        $sql = "INSERT INTO klowgree_grc.client(username, company, first, last, email, phone, address, apt, city, state, 
+        $sql = "INSERT INTO czippgr1_grc.client(username, company, first, last, email, phone, address, apt, city, state, 
                                         zip)
                 VALUES(:username, :company, :first, :last, :email, :phone, :address, :apt, :city, :state, :zip)";
 

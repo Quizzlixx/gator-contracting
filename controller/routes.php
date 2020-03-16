@@ -114,6 +114,7 @@ class Routes
      */
     function clientRegister($f3)
     {
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // instantiate a validator
@@ -147,7 +148,7 @@ class Routes
                 $f3->reroute('/client');
 
                 // unset session variable
-//                $_SESSION = array();
+                $_SESSION = array();
             } else {
                 // Data was not valid
                 // Get errors from validator and add to f3 hive
