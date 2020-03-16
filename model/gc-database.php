@@ -1,7 +1,7 @@
 <?php
 // Requires
-require_once('../../../config.php');
-//require_once('/home/klowgree/config-dating.php');
+//require_once('../../../config.php');
+require_once('/home/klowgree/config-dating.php');
 
 /**
  * Class GcDatabase connects to the database to perform CRUD functions.

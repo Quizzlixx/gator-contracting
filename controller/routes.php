@@ -57,9 +57,6 @@ class Routes
      */
     function contractorRegister($f3)
     {
-        echo "<br>";
-        echo "POST" . var_dump($_POST) . "<br>";
-        echo "SESSION" . var_dump($_SESSION) . "<br>";
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->_val = new GcValidator($f3);
 
@@ -77,14 +74,16 @@ class Routes
                 $zip = $_POST['zip'];
 
                 $contractor = new GcContractor($username, $first, $last, $title, $email, $phone, $address, $apt, $city, $state, $zip);
-                var_dump($contractor);
+//                var_dump($contractor);
 
                 $_SESSION['contractor'] = $contractor;
 
                 $GLOBALS['db']->insertContractor($contractor);
 
                 $f3->reroute('/contractor');
-                var_dump($_SESSION['contractor']);
+
+//                var_dump($_SESSION['contractor']);
+
                 $_SESSION = array();
             }
             else {
@@ -164,7 +163,7 @@ class Routes
     }
 
     /**
-     *
+     * Renders a list of jobs on the job page.
      */
     function jobs()
     {
@@ -176,10 +175,32 @@ class Routes
     }
 
     /**
-     *
+     * @param $f3
      */
-    function login()
+    function login($f3)
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            // instantiate a validator
+            $this->_val = new GcValidator($f3);
+
+            if ($this->_val->validLogin()) {
+
+                // get form data
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+
+                $f3->reroute('/client');
+
+            } else {
+                // Data was not valid
+                // Get errors from validator and add to f3 hive
+                $this->_f3->set('errors', $this->_val->getGErrors());
+
+                // add POST array data to f3 hive for sticky form
+                $this->_f3->set('login', $_POST);
+            }
+        }
         $view = new Template();
         echo $view->render("views/login.html");
     }

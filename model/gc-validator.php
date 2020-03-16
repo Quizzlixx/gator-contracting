@@ -76,6 +76,14 @@ class GcValidator
         return empty($this->_errors);
     }
 
+    public function validLogin()
+    {
+        $this->loginUsername($_POST['username']);
+//        $this->validPassword($_POST['password']);
+
+        return empty($this->errors);
+    }
+
     /**
      * Checks to see if the username field is empty.
      * If it is not, query the database. If a matching username is found, notify the user.

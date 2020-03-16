@@ -60,7 +60,7 @@ $f3->route('GET /jobs', function () {
 });
 
 $f3->route('GET|POST /login', function ($f3) {
-    $GLOBALS['routes']->login();
+    $GLOBALS['routes']->login($f3);
 });
 
 $f3->route('GET|POST /client-register', function ($f3) {
